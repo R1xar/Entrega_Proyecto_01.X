@@ -1,17 +1,27 @@
 /*
  * File:   avr-main.c
- * Author: rlmmx
+ * Author: David Armando Martínez Gil
  *
  * Created on 27 de abril de 2021, 09:31 PM
  */
 
 
-#include <avr/io.h>
+#define F_CPU 10000000UL 
+#include <xc.h>
+#include <util/delay.h>
 
 int main(void) {
     
-    DDRA =  0;
+    DDRB = 0x01;
+    PORTB = 0b00000001;
+
+
     /* Replace with your application code */
     while (1) {
+            PORTB = 0b00000001;
+            _delay_ms(3000);
+            PORTB = 0b00000000;
+            _delay_ms(3000);
     }
 }
+
